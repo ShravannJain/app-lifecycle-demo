@@ -1,4 +1,4 @@
-from fastapi import FastAPI
+from fastapi import FastAPI,HTTPException
 
 app=FastAPI()
 items=[{"name":"shravan"},{"age":21}]
@@ -14,4 +14,6 @@ def health_check():
 # path parameter for listing the note title
 @app.get("/notes/{id}")
 def item(id:int):
+    if id not in notes:
+        raise HTTPException(status_code=404,detail="item not found")
     return notes[id]
