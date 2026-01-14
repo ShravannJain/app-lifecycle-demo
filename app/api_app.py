@@ -1,5 +1,5 @@
 from fastapi import FastAPI,HTTPException,Depends
-from sqlmodel import Session
+from sqlmodel import Session,select
 from app.db import create_db_and_tables,get_session,Notes
 
 app=FastAPI()
@@ -19,6 +19,11 @@ def create_note(
     session.commit()
     session.refresh(note)
     return note
+
+# get method to get the data
+@app.get("/notes/")
+def get_all_notes(session: Session = Depends(get_session)):
+    return session.exec(select(Notes)).all()
 
 #root dir
 @app.get("/")
