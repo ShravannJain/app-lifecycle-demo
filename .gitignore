@@ -8,9 +8,7 @@ __pycache__/
 *.pyo
 *.pyd
 
-# Flask / logs
-instance/
-*.log
+
 
 # Test artifacts
 .pytest_cache/
@@ -24,5 +22,5 @@ htmlcov/
 
 # OS files
 .DS_Store
-Thumbs.db
+database.db
 
