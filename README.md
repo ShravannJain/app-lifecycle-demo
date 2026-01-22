@@ -4,7 +4,20 @@ Ohk so far you can view pull the code and view it yourself , ya i vibe coded som
 Hey, but i know how it works though.  
 So, i wrote a simple docker file from refering docker official documentation [Dockerfile basics](https://docs.docker.com/get-started/docker-concepts/building-images/writing-a-dockerfile/)
 
-Then for now am not implemented docker volume so if you build the container now and use it, you cant see any data now.  
-So thats where am i write now i'll be learning along the way and update the code and the readme .
+ohk, so i pushed my image to docker hub now you can pull the image and test it out 
+### Pull the image  
 
-So if you have any issue you notice or some probelm you see you can raise the issue :).
+```bash
+docker pull shravanjain/fast-apiwdb:1.0
+```
+### After pulling the image run the container 
+```bash
+docker run -d -p 8080:8080 shravanjain/fast-apiwdb:1.0
+```
+### Then open the FastAPI Swagger UI(you can do this using postman or curl no problem):
+```
+http://localhost:8080/docs
+```
+### Now you can use GET and POST method in the swagger ui and it'll reflect it in /notes
+
+if you notice any issue or problem, feel free to raise an issue.
